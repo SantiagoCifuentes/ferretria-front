@@ -22,6 +22,7 @@ function Table({ columns, data }) {
   })
 
   // Render the UI for your table
+  console.log(getTableProps())
   return (
     <table {...getTableProps()}>
       <thead>

@@ -14,10 +14,7 @@ const Factura=({traerFacturas,factura})=>{
 
     const columns = React.useMemo(
         () => [
-          {
-            Header: 'id',
-            accessor: 'id',
-          },
+        
           {
             Header: 'Fecha',
             accessor : 'fecha'
@@ -32,22 +29,24 @@ const Factura=({traerFacturas,factura})=>{
           {
             Header: 'Asesor',
             accessor : 'asesor.nombre'
-            
+           
           },
+        
+    
           {
             Header: 'Productos',
-            accessor : '[productosList]'
-            
-          },
+            id: 'productosList',
+            accessor: data => {
+              let output = [];
+              data.productosList?.map(item => {
+                return output.push(item.nombre+"|" + "Cantidad:"+" "+ item.cantidad);
+              });
+              return output.join("");
+            }
 
-        //   {
-        //     Header: 'Curso',
-        //     accessor : 'curso'
-        //   }, {
-        //     Header: 'Nota',
-        //     accessor : 'nota'
-        //   }
+          },
         ],
+        
         []
       )
     
