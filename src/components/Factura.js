@@ -1,16 +1,21 @@
-import React  from 'react'
+import React, { useContext }  from 'react'
 import { connect } from 'react-redux'
 import { useEffect } from 'react'
 import Table from './Table';
+import{useAuth}from '../context/authContext'
 
 const Factura=({traerFacturas,factura})=>{
-    useEffect(() => { //se ejecuta solo una vez
+
+ 
+  useEffect(() => { //se ejecuta solo una vez
       
         traerFacturas()
       
       
     }, [])
 
+    const {user}= useAuth()
+    console.log(user)
 
     const columns = React.useMemo(
         () => [

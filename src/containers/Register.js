@@ -2,7 +2,7 @@ import { useState } from "react"
 import { useAuth } from "../context/authContext";
 import { useNavigate } from "react-router-dom";
 
-export function Login()
+export function Register()
 {
 
     const[user,setUser]= useState({
@@ -10,7 +10,7 @@ export function Login()
         password: ''
     })
 
-    const { login } = useAuth();
+    const { signup } = useAuth();
 
     const navigate = useNavigate();
 
@@ -24,8 +24,8 @@ export function Login()
     const handleSubmit= async (e)=>{
         e.preventDefault()
         try {
-           await login(user.email,user.password)
-            navigate("/")//navega a una pagina en particular
+           await signup(user.email,user.password)
+            navigate("/Login")//navega a una pagina en particular
         } catch (error) {
             if(error.code==="auth/weak-password")
             setError("La contraseña debe de ser de 6 o más carácteres")
@@ -44,7 +44,7 @@ export function Login()
             <label htmlFor="password">Password</label>
             <input type="password" name="password" onChange={handleChange}/>
 
-            <button>Login</button>
+            <button>Register</button>
         </form>
         </div>
     )

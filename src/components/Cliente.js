@@ -2,6 +2,7 @@ import React  from 'react'
 import { connect } from 'react-redux'
 import { useEffect } from 'react'
 import Table from './Table';
+import{useAuth}from '../context/authContext'
 
 const Clientes=({traerClientes,clientes})=>{
     useEffect(() => { //se ejecuta solo una vez
@@ -11,6 +12,8 @@ const Clientes=({traerClientes,clientes})=>{
       
     }, [])
 
+    const {user}= useAuth()
+    console.log(user)
 
     const columns = React.useMemo(
         () => [
