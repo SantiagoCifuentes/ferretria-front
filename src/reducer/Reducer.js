@@ -1,26 +1,26 @@
 import { createStore } from "redux";
 
 const initialState={
-
+        
+    contenedor : []
 }
 
 const reducer = (state = initialState, action)=>
 {
      switch (action.type) {
-      case "AGREGARPJS":
+      case "GET":
           
         return {
           
-          personajes: action.personajes,
-          info : action.info,
+          contenedor :action.result
           
           
         }
-        break;
+        
   
       default:
         return state
-        break;
+        
     }
 }
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useTable, usePagination } from 'react-table'
 
-import { simulacion } from './makeData'
+
 
 
 
@@ -49,38 +49,6 @@ function Table({ columns, data }) {
   )
 }
 
-function App() {
-  const columns = React.useMemo(
-    () => [
-      {
-        Header: 'id',
-        accessor: 'id',
-      },
-      {
-        Header: 'Nombre',
-        accessor : 'nombre'
-        
-      },
-      {
-        Header: 'Curso',
-        accessor : 'curso'
-      }, {
-        Header: 'Nota',
-        accessor : 'nota'
-      }
-    ],
-    []
-  )
 
 
-
-  const data = React.useMemo(() => simulacion, [])
-
-  return (
-    <>
-      <Table columns={columns} data={data} />
-    </>
-  )
-}
-
-export default App
+export default Table
