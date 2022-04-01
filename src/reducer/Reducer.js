@@ -10,15 +10,10 @@ const reducer = (state = initialState, action)=>
      switch (action.type) {
       case "GET":
           
-        return {
-          
-          contenedor :action.result
-          
-          
-        }
-        
-  
-      default:
+        return {         
+          contenedor :action.result                    
+        } 
+        default:
         return state
         
     }

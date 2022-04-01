@@ -3,10 +3,10 @@ import { connect } from 'react-redux'
 import { useEffect } from 'react'
 import Table from './Table';
 
-const Clientes=({traerClientes,clientes})=>{
+const Proveedor=({traerProveedor,proveedor})=>{
     useEffect(() => { //se ejecuta solo una vez
       
-        traerClientes()
+        traerProveedor()
       
       
     }, [])
@@ -32,8 +32,7 @@ const Clientes=({traerClientes,clientes})=>{
            
           },
         
-    
-         
+          
         ],
         
         []
@@ -42,7 +41,7 @@ const Clientes=({traerClientes,clientes})=>{
 
 
 
-    const data =  clientes
+    const data =  proveedor
     
     //console.log(factura)
     return(<div>
@@ -50,27 +49,27 @@ const Clientes=({traerClientes,clientes})=>{
         </div>)          
     }
 
-    var urlClientes = "http://localhost:8080/ferreteria/cliente"
+    var urlProveedor = "http://localhost:8080/ferreteria/proveedor"
 
     const mapStateToProps = (state) => //trae los datos del state del reducer, de la "bd"
     ({
 
-        clientes: state.contenedor
+        proveedor: state.contenedor
     
     })
    const mapDispatchToProps = (dispatch) => ({
-        traerClientes()
+        traerProveedor()
         {
-        fetch(urlClientes)
+        fetch(urlProveedor)
         .then(response => response.json())
         .then(data => {
             console.log(data)
-            const clientes = data
+            const proveedor = data
             
             dispatch
                 ({
                     type: "GET",
-                    result: clientes
+                    result: proveedor
                     
                 })
         })
@@ -90,4 +89,4 @@ const Clientes=({traerClientes,clientes})=>{
     
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Clientes)
+export default connect(mapStateToProps, mapDispatchToProps)(Proveedor)

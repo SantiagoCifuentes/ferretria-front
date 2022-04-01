@@ -14,6 +14,14 @@ export const Navbar=({titulo="FERRETERIA" })=>(
         <button  className="  btn-primary ms-1">Inventario</button>
       </Link>
 
+      <Link to="/Clientes">
+        <button  className="  btn-primary ms-1">Clientes</button>
+      </Link>
+
+      <Link to="/Proveedor">
+        <button  className="  btn-primary ms-1">Proveedor</button>
+      </Link>
+
       <Link to="/Generar-factura">
         <button  className="  btn-primary ms-1">Generar factura</button>
       </Link>

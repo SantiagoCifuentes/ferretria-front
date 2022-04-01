@@ -39,7 +39,7 @@ const Factura=({traerFacturas,factura})=>{
             accessor: data => {
               let output = [];
               data.productosList?.map(item => {
-                return output.push(item.nombre+"|" + "Cantidad:"+" "+ item.cantidad);
+                return output.push(item.nombre+"|" + "Cantidad: "+ item.cantidad+"|");
               });
               return output.join("");
             }
