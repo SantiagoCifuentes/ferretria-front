@@ -10,7 +10,7 @@ export function Login()
         password: ''
     })
 
-    const { login } = useAuth();
+    const { login,loginWithGoogle } = useAuth();
 
     const navigate = useNavigate();
 
@@ -21,6 +21,15 @@ export function Login()
       };
 
     
+      
+  const handleGoogleSignin = async () => {
+    try {
+      await loginWithGoogle();
+      navigate("/");
+    } catch (err) {
+      console.log(err);
+    }
+  };
     const handleSubmit= async (e)=>{
         e.preventDefault()
         try {
@@ -46,6 +55,7 @@ export function Login()
 
             <button>Login</button>
         </form>
+        <button onClick={handleGoogleSignin}>Inicia sesión con Google</button>
         </div>
     )
 }

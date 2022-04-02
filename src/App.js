@@ -12,13 +12,22 @@ import Proveedor from './components/Proveedor';
 import { AuthProvider } from './context/authContext';
 import { Login } from './containers/Login';
 import { Register } from './containers/Register';
+import { useAuth } from './context/authContext';
+import { async } from '@firebase/util';
 
 
 
 function App() 
 {
 
- 
+  //  const{user,logout,loading}= useAuth()
+
+  //   const handleLogout = async () =>{
+  //     await logout()
+  //   }
+
+
+  //   if (loading) return <h1>loading</h1>
 
   return ( //el store trae el estado del reducer y se lo pasa a todos los hijos
     <Provider store={store}>  
@@ -26,7 +35,8 @@ function App()
     <BrowserRouter>
     
     <Navbar/>
-    <h2>home</h2>
+    
+    {/* <button onClick={handleLogout}>Cerrar sesión</button> */}
     <Routes>
       <Route path='Register' element={<Register />}></Route>
         <Route path='Login' element={<Login />}></Route>
